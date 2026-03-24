@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - My Website</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h1> Welcome to my website</h1>
+<p>This is my first web page created in SET08101</p>
+
+<h1>Heading Level 1</h1>
+<h2>Heading Level 2</h2>
+<h3>Heading Level 3</h3>
+<h4>Heading Level 4</h4>
+<h5>Heading Level 5</h5>
+<h6>Heading Level 6</h6>
+<p>This is the first paragraph. It contains multiple sentences.</p>
+
+<p>This is the second paragraph.<br>
+This line uses a break tag to start a new line within the same paragraph.</p>
+
+<img src="images/Forest-4928x3264.jpg" width="600" height="400" alt="Forest image for test">
+<hr>
+<p>This text is <strong>strongly important</strong>.</p>
+<p>This text has <em>emphasis</em>.</p>
+<p>This word is <mark>highlighted</mark>.</p>
+<p>This is <code>inline code</code>.</p>
+
+<!-- Unordered (bullet) list -->
+<ul>
+    <li>First item</li>
+    <li>Second item</li>
+    <li>Third item</li>
+</ul>
+
+<!-- Ordered (numbered) list -->
+<ol>
+    <li>Step one</li>
+    <li>Step two</li>
+    <li>Step three</li>
+</ol>
+
+<!-- Nested list -->
+<ul>
+    <li>Main item
+        <ul>
+            <li>Sub-item one</li>
+            <li>Sub-item two</li>
+        </ul>
+    </li>
+</ul>
+
+<!-- Internal link to another page on your site -->
+<a href="about.html">About Page</a>
+
+<!-- External link to another website -->
+<a href="https://www.w3schools.com/" target="_blank">W3Schools</a>
+
+
+
+</body>
+</html>
