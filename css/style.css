@@ -1,0 +1,136 @@
+:root {
+    --colour-primary: #2563eb;
+    --colour-primary-dark: #1d4ed8;
+    --colour-secondary: #10b981;
+    --colour-text: #1f2937;
+    --colour-text-light: #6b7280;
+    --colour-background: #ffffff;
+    --colour-surface: #f9fafb;
+    --colour-border: #e5e7eb;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    flex-direction: column;
+    text-align: center;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #1f2937;
+    background-color: #f1fcff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #81d81d;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #7c3aed;
+}
+
+a:focus {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+nav a {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    background-color: var(--colour-primary);
+    color: white;
+    text-decoration: none;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.card {
+    flex: 1;
+    padding: 1.5rem;
+    background-color: var(--colour-surface);
+    border: 1px solid var(--colour-border);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Tablet and up (768px) */
+@media (min-width: 768px) {
+    header {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    nav ul {
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+}
+
+/* Desktop and up (1024px) */
+@media (min-width: 1024px) {
+    main {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+/* Mobile: single column */
+.card {
+    flex: 1 1 100%;
+}
+
+/* Tablet: two columns */
+@media (min-width: 768px) {
+    .card {
+        flex: 1 1 calc(50% - 0.75rem);
+    }
+}
+
+/* Desktop: three columns */
+@media (min-width: 1024px) {
+    .card {
+        flex: 1 1 calc(33.333% - 1rem);
+    }
+}
