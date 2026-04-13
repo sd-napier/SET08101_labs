@@ -134,3 +134,22 @@ nav a:hover {
         flex: 1 1 calc(33.333% - 1rem);
     }
 }
+
+
+.hidden {
+    display: none;
+}
+
+body.dark-mode {
+    background-color: #1a1a2e;
+    color: #eaeaea;
+}
+
+body.dark-mode a {
+    color: #4fc3f7;
+}
+
+body.dark-mode .card {
+    background-color: #16213e;
+    border-color: #0f3460;
+}
