@@ -214,3 +214,130 @@ function clearErrors() {
         input.classList.remove('invalid');
     });
 }
+
+//Lab 5 real-time email validation for forms
+document.getElementById('email').addEventListener('input', function() {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const errorSpan = this.parentElement.querySelector('.error-message');
+
+    if (this.value && !emailPattern.test(this.value)) {
+        showError(this, 'Please enter a valid email address');
+    } else {
+        errorSpan.textContent = '';
+        errorSpan.classList.remove('visible');
+        this.classList.remove('invalid');
+    }
+});
+
+//Lab 5 real-time phone validation for forms
+document.getElementById('phone').addEventListener('input', function() {
+    const phone = /^[0-9]{11}$/;
+    const errorSpan = this.parentElement.querySelector('.error-message');
+
+    if (this.value && phone.test(this.value)) {
+        showError(this, 'Please enter a valid phone number');
+    } else {
+        errorSpan.textContent = '';
+        errorSpan.classList.remove('visible');
+        this.classList.remove('invalid');
+    }
+});
+
+//Lab 5 real-time name validation for forms
+document.getElementById('name').addEventListener('input', function() {
+    const name = (name.value.trim().length < 2);
+    const errorSpan = this.parentElement.querySelector('.error-message');
+
+    if (this.value && !name.test(this.value)) {
+        showError(this, 'Please enter a valid name');
+    } else {
+        errorSpan.textContent = '';
+        errorSpan.classList.remove('visible');
+        this.classList.remove('invalid');
+    }
+});
+
+//Lab 5 password strength checker
+document.getElementById('password').addEventListener('input', function() {
+    const password = this.value;
+    const strengthBar = document.getElementById('strength-bar');
+    const strengthText = document.querySelector('#strength-text span');
+
+    let strength = 0;
+
+    // Check criteria
+    if (password.length >= 8) strength++;
+    if (/[A-Z]/.test(password)) strength++;
+    if (/[0-9]/.test(password)) strength++;
+    if (/[^A-Za-z0-9]/.test(password)) strength++;
+
+    // Update display
+    strengthBar.className = '';
+    switch (strength) {
+        case 0:
+            strengthText.textContent = 'None';
+            break;
+        case 1:
+            strengthBar.classList.add('weak');
+            strengthText.textContent = 'Weak';
+            break;
+        case 2:
+            strengthBar.classList.add('fair');
+            strengthText.textContent = 'Fair';
+            break;
+        case 3:
+            strengthBar.classList.add('good');
+            strengthText.textContent = 'Good';
+            break;
+        case 4:
+            strengthBar.classList.add('strong');
+            strengthText.textContent = 'Strong';
+            break;
+    }
+});
+
+//Lab 5 fetch function
+const fetchBtn = document.getElementById('fetch-btn');
+const loading = document.getElementById('loading');
+const dataContainer = document.getElementById('data-container');
+const errorContainer = document.getElementById('error-container');
+
+fetchBtn.addEventListener('click', async function() {
+    // Show loading state
+    loading.classList.remove('hidden');
+    dataContainer.innerHTML = '';
+    errorContainer.classList.add('hidden');
+
+    try {
+        const response = await fetch(
+            'https://jsonplaceholder.typicode.com/posts?_limit=5'
+        );
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        displayData(data);
+
+    } catch (error) {
+        errorContainer.textContent = 'Failed to load data: ' + error.message;
+        errorContainer.classList.remove('hidden');
+
+    } finally {
+        loading.classList.add('hidden');
+    }
+});
+
+//Lab 5 display function
+function displayData(posts) {
+    posts.forEach(post => {
+        const article = document.createElement('article');
+        article.className = 'post-card';
+        article.innerHTML = `
+            <h3>${post.title}</h3>
+            <p>${post.body}</p>
+        `;
+        dataContainer.appendChild(article);
+    });
+}
